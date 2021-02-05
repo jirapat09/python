@@ -1,4 +1,4 @@
-'''
+
 import os
 choice = 0
 fillename =''
@@ -26,7 +26,7 @@ while True:
         opentnotepad()
     else:
         break
- #4.2
+ #############################แบบฝึกหัด 4.1############################################
 from os import system,name
 print('โปรแกรมร้านค้าออนไลน์')
 print('-'*25)
@@ -42,12 +42,10 @@ def clear():
         _ = system('cls')
     else:
         _=system('clear')
-
 def menu():
     global choice
     print('1.แสดงรายการสินค้า\n2.หยิบสินค้าเข้าตะกร้า\n3.แสดงรายจำนวนสินค้าและราคาของสินค้าที่หยิบ\n4.ปิดโปรแกรม')
     choice = input('กรุณาเลือกทำรายการ :')
-
 def opensinka():
     for i in range(5):
         x = int(input('เลือกไอเทม : '))
@@ -63,8 +61,6 @@ def opensinka():
             sinka.append('ยาเพิ่ม exp')
         i += 1
     print('')
-    
-
 def openlist():
     print('*'*25)
     print('รายการสินค้า')
@@ -72,7 +68,6 @@ def openlist():
     for i in range(5):
         print(item[i])
     print('')
-
 def showall():
     for i in sinka:
             if i =='ยาHP':
@@ -102,7 +97,6 @@ def showall():
     print('')
     print("รวม",'        ',str(productt),'      ',str(pricee))
     print('')
-
 while True:
     menu()
     print('')
@@ -118,7 +112,8 @@ while True:
             break
         elif exit == 'n':
             continue
-#4.3
+################################################################################
+################################แบบฝึกหัด4.2#####################################
 Dictionary = {
     'ability':'{0:<15}{1:<15}'.format('n.','ความสารมารถ'),
     'abroad' :'{0:<15}{1:<15}'.format('adv.','ต่างประเทศ'),
@@ -167,28 +162,42 @@ while True:
             break
         elif exitt == 'n':
             continue
-'''
+############################################################################################
+##################################แบบฝึกหัด 4.3#############################################
 import datetime
 now = datetime.datetime.now()
-data = {}
-i=0
-x=0
+name_s = []
+pts_s = []
+time_s = []
+ht = []
 def menu():
-    for i in range(n):
+    for i in range(num):
         name = input('ป้อนชื่อ : ')
         pts = float(input('คะแนน :'))
         time =float(input('ระยะเวลาที่ใช้ : '))
-        hf = (pts/time)
-        data[name] = '{0:<10}{1:<19}{2:<10}'.format(str(time),str(pts),'%.4f'%hf)
+        ht.append(pts/time)
+        name_s.append(name)
+        pts_s.append(pts)
+        time_s.append(time)
+    for i in range(num):
+        j = i
+        for j in range(num):
+            if ht[i] > ht[j]:
+                a,b,c,d = ht[i],name_s[i],pts_s[i],time_s[i]
+                ht[i],name_s[i],pts_s[i],time_s[i] = ht[j],name_s[j],pts_s[j],time_s[j]
+                ht[j],name_s[j],pts_s[j],time_s[j] = a,b,c,d
 
 def show():
     print('Shotgun sunday training 2021')
     print('Condition : 1')
     print (now.strftime("%Y-%m-%d %H:%M:%S"))
-    print('{0: <10}{1: <10}{2: <10}{3: <15}{4: <15}{5: <15}{6: <10}'.format('No.','PTS','TIME','COMPETITER#Name','HIT FACTOR','STATE POINTS','STATE PERCENT'))
-    for k,v in data.items():
-        print('{0: <10}{1: <10}{2: <10}'.format(i+1,k,v))
+    print('{0: <10}{1: <10}{2: <10}{3: <16}{4: <15}{5: <15}{6: <10}'.format('No.','PTS','TIME','COMPETITER#Name','HIT FACTOR','STATE POINTS','STATE PERCENT'))
+    for i in range(num):
+        SPS = ht[i]/ht[0]*50
+        SPT = SPS/(ht[0]/ht[0]*50)*100
+        print('{0: <10}{1: <10}{2: <10}{3: <16}{4: <15}{5: <15}{6: <10}'.format(i+1,int(pts_s[i]),'%.2f'%time_s[i],name_s[i],'%.4f'%ht[i],'%.4f'%SPS,'%.2f'%SPT))
 
-n = int(input('จำนวนคนยิง :'))
+num = int(input("จำนวนคนยิง:"))
 menu()
 show()
+##############################################################################################
