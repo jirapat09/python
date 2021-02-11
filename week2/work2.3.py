@@ -1,0 +1,15 @@
+print("*"*25)
+print("โปรแกรมหยิบของใส่ตะกร้า")
+print("*"*25)
+a=[]
+for i in range(5) :
+    b = input('สินค้าชิ้นที่ '+ str(i+1) +' คือ      ')
+    a.append(b)
+print("*"*25 ,"\n","สินค้าที่หยิบคือ")
+print("*"*25)
+print('1.',a[0])
+print('2.',a[1])
+print('3.',a[2])
+print('4.',a[3])
+print('5.',a[4])
+print("*"*25)

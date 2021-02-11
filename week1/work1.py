@@ -1,0 +1,8 @@
+name =input('Name ')
+surname =input('Surname ')
+year =input('Year ')
+code =input('Code ')
+print(name)
+print(surname)
+print(year)
+print(code)

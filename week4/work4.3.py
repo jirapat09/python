@@ -5,7 +5,6 @@ pts_s = []
 time_s = []
 ht = []
 def menu():
-    num = int(input("จำนวน:"))
     for i in range(num):
         name = input('ป้อนชื่อ : ')
         pts = float(input('คะแนน :'))
@@ -21,16 +20,17 @@ def menu():
                 a,b,c,d = ht[i],name_s[i],pts_s[i],time_s[i]
                 ht[i],name_s[i],pts_s[i],time_s[i] = ht[j],name_s[j],pts_s[j],time_s[j]
                 ht[j],name_s[j],pts_s[j],time_s[j] = a,b,c,d
-    print(num)
 
+def show():
+    print('Shotgun sunday training 2021')
+    print('Condition : 1')
+    print (now.strftime("%Y-%m-%d %H:%M:%S"))
+    print('{0: <10}{1: <10}{2: <10}{3: <16}{4: <15}{5: <15}{6: <10}'.format('No.','PTS','TIME','COMPETITER#Name','HIT FACTOR','STATE POINTS','STATE PERCENT'))
+    for i in range(num):
+        SPS = ht[i]/ht[0]*50
+        SPT = SPS/(ht[0]/ht[0]*50)*100
+        print('{0: <10}{1: <10}{2: <10}{3: <16}{4: <15}{5: <15}{6: <10}'.format(i+1,int(pts_s[i]),'%.2f'%time_s[i],name_s[i],'%.4f'%ht[i],'%.4f'%SPS,'%.2f'%SPT))
+
+num = int(input("จำนวนคนยิง:"))
 menu()
-print(num)
-print('Shotgun sunday training 2021')
-print('Condition : 1')
-print (now.strftime("%Y-%m-%d %H:%M:%S"))
-print('{0: <10}{1: <10}{2: <10}{3: <15}{4: <15}{5: <15}{6: <10}'.format('No.','PTS','TIME','COMPETITER#Name','HIT FACTOR','STATE POINTS','STATE PERCENT'))
-for i in range(num):
-    SPS = ht[i]/ht[0]*50
-    SPT = SPS/(ht[0]/ht[0]*50)*100
-    print('{0: <10}{1: <10}{2: <10}{3: <15}{4: <15}{5: <15}{6: <10}'.format(i+1,int(pts_s[i]),'%.2f'%time_s[i],name_s[i],'%.4f'%ht[i],'%.4f'%SPS,'%.2f'%SPT))
-
+show()
